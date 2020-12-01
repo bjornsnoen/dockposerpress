@@ -16,6 +16,7 @@ CMD ["composer", "install"]
 
 FROM node:15-alpine as node-encore
 RUN apk add python2 g++ make
+USER node
 
 FROM with-composer as blog-base
 USER root
