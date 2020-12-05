@@ -6,14 +6,6 @@ RUN adduser -D -u ${uid} composer
 USER composer
 CMD ["composer", "install"]
 
-FROM php:7.3-fpm-alpine as with-composer-7.3
-ARG uid
-COPY ./install-deps.sh ./install-composer-one.sh /
-RUN sh /install-deps.sh && sh /install-composer-one.sh
-RUN adduser -D -u ${uid} composer
-USER composer
-CMD ["composer", "install"]
-
 FROM node:15-alpine as node-encore
 RUN apk add python2 g++ make
 USER node
