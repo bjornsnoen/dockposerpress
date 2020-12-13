@@ -12,6 +12,6 @@ until php /usr/local/bin/dbcheck; do
 done
 
 echo "Enabling plugins"
-cd /var/www/${DB_NAME} && sudo -E -u www-data sh vendor/bin/wp plugin activate --all
+cd /var/www/${DB_NAME} && su -s /bin/sh www-data -c "vendor/bin/wp plugin activate --all"
 
 exec "$@"
