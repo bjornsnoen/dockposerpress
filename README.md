@@ -17,6 +17,7 @@ RUN composer require wpackagist-plugin/some-plugin:^version etc.
 
 
 FROM bjornsnoen/dockposerpress:runner as runner
+WORKDIR /var/www/blog
 COPY --from=install-step /app /var/www/blog
 ```
 
