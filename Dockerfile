@@ -1,4 +1,5 @@
 FROM php:7.4-fpm-alpine as blog-base-installer
+RUN apk add patch
 LABEL org.opencontainers.image.source = "https://github.com/bjornsnoen/dockposerpress"
 COPY ./wordpress /app
 COPY --from=composer/composer /usr/bin/composer /usr/bin/composer
